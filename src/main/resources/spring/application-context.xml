@@ -13,19 +13,19 @@
 
 	<bean id="process" class="in.springboot.webservices.springboottech.Processing"/>
 
-	<!--<bean class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close" id="dataSource">
+	<bean class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close" id="dataSource">
         	<property name="driverClassName" value="com.mysql.jdbc.Driver"/>
         	<property name="url" value="${datasource.url}"/>
 		<property name="username" value="${datasource.username}"/>
         	<property name="password" value="${datasource.password}"/>
-	</bean>-->
+	</bean>
 	<camelContext id="SpringBootTech" xmlns="http://camel.apache.org/schema/spring" streamCache="true">
 
 	<dataFormats>
 	     <json id="jsonOrder" library="Jackson"/>
         </dataFormats>
  
-	<!--<route id="GetDBData">
+	<route id="GetDBData">
 		<from uri="restlet:http://0.0.0.0:9080/api/getDBDetails?restletMethod=GET"/>		
 		<doTry>
 		   <log message="SpringBootTech001 Hit Received at GetDBData ${date:now:yyyy-MM-dd HH:mm:ss}"/>
@@ -64,7 +64,7 @@
                            <setHeader headerName="CamelRestletResponse"><simple>${body}</simple></setHeader>
                     </doCatch>
 		</doTry>
-	</route>-->
+	</route>
 
 	<route id="GetHello">
                 <from uri="restlet:http://0.0.0.0:9080/api/getHello?restletMethod=GET"/>
